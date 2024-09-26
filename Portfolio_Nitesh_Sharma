@@ -1,0 +1,157 @@
+// html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NITESH SHARMA</h1>
+            <p>Hello everyone ,Welcome to my Portfolio
+                  This portfolio includes my skill details 
+                  along with acadmic record
+            </p>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <img src="RISHIKESH01.jpg" alt="NITESH SHARMA" class="profile-image">
+            <h2>My name is Nitesh Sharma .I belong to a small district of haryana that is Yamunanagar
+                ,Haryana.I had done my schooling from govt school and scored good grades in 12th 
+                std. and Currently i am persuing B.tech cse from 
+                S.I.E.T Nilokheri (Karnal) .
+            </h2>
+            <p>About my skills: I have gained alot of skills during 2 years 
+                i am good problem solver , i know multiple languages like C,Python,C++,
+                Javascipt ,CSS,HTML etc. I am currently doing web development along with that i am also
+                doing dsa in c++.I am a good competator or can say performed good in  competative exams 
+                i had cleadred NDA exam conecutively 3 times. I had gone to ssb 4 times till now.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>C++</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h3>Calculator</h3>
+                <p>Built using html,css, and javascript</p>
+                <img src="Screenshot 2024-09-26 174022.png" alt="Project 1">
+            </div>
+            <div class="project-item">
+                <h3>Landing page</h3>
+                <p>Built using html and css</p>
+                <img src="Screenshot 2024-09-26 174239.png" alt="Project 2">
+            </div>
+          
+        </div>
+    </section>
+
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2>Resume</h2>
+            <p>Download my <a href="resume.pdf" target="_blank">Resume</a></p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>contact me</h2>
+            <p>Email: nitesharmans775@gmail.com</p>
+            <p>Phone: 9671881556</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nitesh Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+//css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.about, .skills, .projects, .resume, .contact {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.project-item {
+    margin: 20px 0;
+}
+
+.project-item img {
+    width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+//
