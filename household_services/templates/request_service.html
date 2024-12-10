@@ -1,0 +1,41 @@
+{% extends "basic.html" %}
+{% block title %}
+Request_page
+{% endblock %}
+{% block content %}
+<div class="hlo">
+    <form method="POST" action="{{ url_for('request_service_view') }}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Fullname">Fullname</label>
+            <input type="text" class="form-control" id="Fullname" name="Fullname" required>
+        </div>
+        <div class="form-group">
+            <label for="Service_required">Service_required</label>
+            <input type="text" class="form-control" id="Service_required" name="Service_required" required>
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" id="Description" name="Description">
+        </div>
+        <div class="form-group">
+            <label for="Provider_username">Provider_username</label>
+            <input type="text" class="form-control" id="Provider_username" name="Provider_username">
+        </div>
+        <div class="form-group">
+            <label for="">User_username</label>
+            <input type="text" class="form-control" id="User_username" name="User_username" value="{{current_user.username}}" readonly>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Request</button>
+    </form>
+</div>
+
+<style>
+    .hlo {
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;  /* Fix alignment issue */
+    }
+</style>
+{% endblock %}
