@@ -1,0 +1,28 @@
+{% extends "basic.html" %}
+{% block content %}
+    <h2>Search Results for "{{ query }}"</h2>
+    
+    {% if service_name %}
+        <h3>Services</h3>
+        <ul>
+            {% for service_name in service_name %}
+                <li>{{ service_name }} - {{ service_name.Fullname }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No services found.</p>
+    {% endif %}
+    {% if pincode %}
+        <h3>Services</h3>
+        <ul>
+            {% for pincode in service_name %}
+                <li>{{ service_name }} - {{ service_name.Fullname }}-{{service_name.pincode}}</li>
+            {% endfor %}
+        </ul>  
+    {% else %}
+        <p>No pincode found.</p>
+    {% endif %}
+
+  
+
+{% endblock %}
