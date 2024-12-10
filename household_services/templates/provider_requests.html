@@ -1,0 +1,46 @@
+{% extends 'basic.html'%}
+{% block title%}
+Provider Dasboard
+{% endblock %}
+{% block content %}
+    <h2>Your Service Requests</h2>
+    {% if requests %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Service Required</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                    <tr>
+                        <td>{{ request.Fullname }}</td>
+                        <td>{{ request.Service_Required }}</td>
+                        <td>{{ request.Description or "No description provided" }}</td>
+                        <td>{{ request.status }}</td>
+                        <td>
+                            {% if request.status == 'pending' %}
+                                <form method= "POST" action="{{ url_for('provider_request_action', request_id=request.id) }}">
+                                    <button type="submit" name="action" value="accept" class="btn btn-success">Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn-danger">Reject</button>
+                                </form>
+                            {% elif request.status == 'completed_by_provider' %}
+                                <span class="badge bg-success">Completed</span>
+                            {% elif request.status == 'rejected_by_provider' %}
+                                <span class="badge bg-danger">Rejected</span>
+                            {% else %}
+                                <span class="badge bg-warning">Pending</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No service requests available at the moment.</p>
+    {% endif %}
+{% endblock %}
