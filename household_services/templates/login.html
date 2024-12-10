@@ -1,0 +1,44 @@
+{% extends "basic.html" %}
+{% block title%}
+Logic Page
+{% endblock %}
+{% block content%}
+<div class="container mt-5">
+    <h1 class="text-center">Please Login to your account<h1>
+    <h2 class="text-center">Login</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="/login">
+        <div class="form-group">
+            <label for="user_type">User Type</label>
+            <select class="form-control" id="user_type" name="user_type" required>
+                <option value="" disabled selected>Select your user type</option>
+                <option value="admin">Admin</option>
+                <option value="Service_Provider">Service Provider</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+    <a class="register" href="{{url_for("registration_Service_Provider")}}" >Registration for service provider</a>
+    <p>......or......</p>
+    <a class="register" href="{{url_for("user_registration")}}"> Registration for user</a>
+</div>
+<style>
+  .register{
+    text-decoration:none;
+  }
+{% endblock%}
