@@ -1,0 +1,16 @@
+{% extends 'basic.html'%}
+{% block title%}
+edit_request
+{% endblock%}
+{% block content%}
+<h1>Edit Description for {{ item.id }}</h1>
+<form method="POST">
+    <label for="description">New Description:</label>
+    <textarea id="description" name="description" required>{{ item.description }}</textarea>
+    <br>
+    <button type="submit">Update Description</button>
+</form>
+<br>
+<a href="{{ url_for('user_home') }}">Back to Home</a>
+
+{% endblock %}
