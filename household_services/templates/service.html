@@ -1,0 +1,38 @@
+{% extends "basic.html" %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Service</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Username</th>
+                <th scope="col">More Info</th>
+                <th scope="col">Request for Service</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for provider in items %}
+                <tr>
+                    <td>{{ provider.Fullname }}</td>
+                    <td>{{ provider.service_name }}</td>
+                    <td>{{ provider.pincode }}</td>
+                    <td>{{ provider.experience }}</td>
+                    <td>{{ provider.username }}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info">More Info</button>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline btn-success" href="{{ url_for('request_service_view',provider_username=provider_username)}}">Request for Service</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
