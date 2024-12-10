@@ -1,0 +1,35 @@
+<!-- manage_users.html -->
+{% extends "basic.html" %}
+
+{% block title %}
+Manage Users
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Manage Users</h1>
+
+    <form action="{{ url_for('manage_users') }}" method="POST" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="col-md-4">
+                <select name="user_type" class="form-control" required>
+                    <option value="user">User</option>
+                    <option value="service_provider">Service Provider</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select name="action" class="form-control" required>
+                    <option value="block">Block</option>
+                    <option value="unblock">Unblock</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+
+    </table>
+</div>
+{% endblock %}
