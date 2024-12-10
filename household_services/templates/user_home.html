@@ -1,0 +1,49 @@
+{% extends 'basic.html'%}
+{% block title%}
+User_home
+{% endblock%}
+{% block content%}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FULLNAME</th>
+            <th scope="col">PROVIDER_USERNAME</th>
+            <th scope="col">SERVICE_REQUIRED</th>
+            <th scope="col">DESCRIPTION</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">EDIT</th>
+            <th scope="col">CANCEL</th>
+            <th scope="col">COMPLETED</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in request %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.Fullname }}</td>
+                <td>{{ user.Provider_username }}</td>
+                <td>{{ user.Service_required }}</td>
+                <td>{{ user.Description }}</td>
+                <td>{{ user.status }}</td>
+                <td>
+                    <a href="{{ url_for('edit', id=user.id) }}" class="btn btn-outline btn-info">Edit</a>        
+                </td>
+                <td>
+                    <form action="{{ url_for('cancel_request', id=user.id) }}" method="POST">
+                        <button type="submit" class="btn btn-outline btn-danger">Cancel</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ url_for('complete_request', id=user.id) }}" method="POST">
+                        <button type="submit" class="btn btn-outline btn-success">Complete</button>
+                    </form>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
